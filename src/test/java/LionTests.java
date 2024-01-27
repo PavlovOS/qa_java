@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -14,10 +15,12 @@ public class LionTests {
     @Mock
     Feline feline;
     Lion lion;
+
     @Before
     public void createLion() throws Exception {
         lion = new Lion("Самец", feline);
     }
+
     @Test
     public void successGetFoodLionWithMock() throws Exception {
         List<String> result = List.of("Животные", "Птицы", "Рыба");
@@ -26,6 +29,7 @@ public class LionTests {
         Mockito.verify(feline).getFood("Хищник");
         Assert.assertEquals(result, food);
     }
+
     @Test
     public void successGetKittensLionWithMock() {
         Mockito.when(feline.getKittens()).thenReturn(1);
@@ -33,6 +37,7 @@ public class LionTests {
         Mockito.verify(feline).getKittens();
         Assert.assertEquals(1, kittens);
     }
+
     @Test
     public void successDoesHaveManeLion() {
         boolean hasMane = lion.doesHaveMane();

@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -14,15 +15,18 @@ public class CatTests {
     @Mock
     Feline feline;
     Cat cat;
+
     @Before
     public void createCat() {
         cat = new Cat(feline);
     }
+
     @Test
     public void successGetSoundCat() {
         String sound = cat.getSound();
         Assert.assertEquals(sound, "Мяу");
     }
+
     @Test
     public void successGetFoodCatWithMock() throws Exception {
         List<String> result = List.of("Животные", "Птицы", "Рыба");

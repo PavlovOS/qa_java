@@ -14,24 +14,28 @@ public class CreateLionObjectTest {
     private final String hasMane;
     @Mock
     Feline feline;
+
     public CreateLionObjectTest(String gender, String hasMane) {
         this.gender = gender;
         this.hasMane = hasMane;
     }
+
     @Parameterized.Parameters
     public static Object[][] getGender() {
-        return new Object[][] {
+        return new Object[][]{
                 {"Самец", "true"},
                 {"Самка", "false"},
                 {"Неизвестно", "Используйте допустимые значения пола животного - самей или самка"},
         };
     }
+
     @Before
     public void init() {
         MockitoAnnotations.openMocks(this);
     }
+
     @Test
-    public void successCreateLionObjectWithDifferentGender(){
+    public void successCreateLionObjectWithDifferentGender() {
         String result;
         try {
             Lion lion = new Lion(gender, feline);
